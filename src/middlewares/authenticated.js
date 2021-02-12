@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { API_KEY } from '../env';
+import { API_KEY } from '../env.js';
 
 const authenticated = (req, res, next) => {
     const token = req.headers.authorization;

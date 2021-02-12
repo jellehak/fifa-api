@@ -1,54 +1,54 @@
-import usersModel from '../models/usersModel';
+import usersModel from '../models/usersModel.js'
 
 const usersController = {
-    getAll: async (req, res, _) => {
-        usersModel.find({}, (err, users) => {
-            if (err) {
-                return res.json(err);
-            }
+  getAll: async (req, res, _) => {
+    usersModel.find({}, (err, users) => {
+      if (err) {
+        return res.json(err)
+      }
 
-            res.json(users);
-        });
-    },
+      res.json(users)
+    })
+  },
 
-    getOne: (req, res, _) => {
-        usersModel.findById(req.params.id, (err, user) => {
-            if (err) {
-                return res.json(err);
-            }
+  getOne: (req, res, _) => {
+    usersModel.findById(req.params.id, (err, user) => {
+      if (err) {
+        return res.json(err)
+      }
 
-            res.json(user || {});
-        });
-    },
+      res.json(user || {})
+    })
+  },
 
-    create: (req, res, _) => {
-        usersModel.create(req.body, (err, user) => {
-            if (err) {
-                return res.json(err);
-            }
+  create: (req, res, _) => {
+    usersModel.create(req.body, (err, user) => {
+      if (err) {
+        return res.json(err)
+      }
 
-            res.json(user);
-        });
-    },
+      res.json(user)
+    })
+  },
 
-    update: (req, res, _) => {
-        usersModel.findOneAndUpdate(req.params.id, req.body, { new: true }, (err, user) => {
-            if (err) {
-                return res.json(err);
-            }
+  update: (req, res, _) => {
+    usersModel.findOneAndUpdate(req.params.id, req.body, { new: true }, (err, user) => {
+      if (err) {
+        return res.json(err)
+      }
 
-            res.json(user);
-        });
-    },
+      res.json(user)
+    })
+  },
 
-    delete: (req, res, _) => {
-        usersModel.remove({ _id: req.params.id }, (err, _) => {
-            if (err) {
-                return res.json(err);
-            }
-        });
-        res.json(true);
-    }
-};
+  delete: (req, res, _) => {
+    usersModel.remove({ _id: req.params.id }, (err, _) => {
+      if (err) {
+        return res.json(err)
+      }
+    })
+    res.json(true)
+  }
+}
 
-export default usersController;
+export default usersController
